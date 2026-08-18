@@ -1,6 +1,6 @@
 // Apex Digital - Google Sheets form integration
 // ضع رابط Google Apps Script Web App في المتغير التالي بعد عمل Deploy.
-const GOOGLE_SCRIPT_URL = "";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwR-1t1BaDQE_t2uk0msz8-txJl37Xk3hQjSyoDRTFBdYssUlehbmXF1wgUuFPvD5qq/exec";
 
 const form = document.getElementById("leadForm");
 const status = document.getElementById("formStatus");
