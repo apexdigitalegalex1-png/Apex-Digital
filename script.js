@@ -3,9 +3,7 @@
 // Google Sheets Integration
 // ========================================
 
-const GOOGLE_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbwR-1t1BaDQE_t2uk0msz8-txJl37Xk3hQjSyoDRTFBdYssUlehbmXF1wgUuFPvD5qq/exec";
-
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5EP51iEM19a93Ei5CN486kvZ9TP1bRIGwDHjk9btQ4JWzzIfJX3fXT45cW1HNIfJO/exec";
 const form = document.getElementById("leadForm");
 const status = document.getElementById("formStatus");
 
