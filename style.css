@@ -16,20 +16,11 @@ a{text-decoration:none;color:inherit}
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
     text-decoration: none;
 }
 
-.logo img {
-    width: 52px;
-    height: 52px;
-    object-fit: contain;
-    display: block;
-    flex-shrink: 0;
-}
-
 .logo span {
-    color: #fff;
+    color: #ffffff;
     font-size: 20px;
     font-weight: 800;
     white-space: nowrap;
@@ -37,8 +28,7 @@ a{text-decoration:none;color:inherit}
 
 .logo span b {
     color: #35c8ff;
-}
-.navbar nav{display:flex;gap:28px;color:#a9bdd0;font-size:13px}
+}.navbar nav{display:flex;gap:28px;color:#a9bdd0;font-size:13px}
 .navbar nav a{transition:.25s}
 .navbar nav a:hover{color:#fff}
 .nav-button{background:linear-gradient(135deg,#54d3ff,#247be8);color:#02101c;padding:11px 20px;border-radius:12px;font-weight:900}
