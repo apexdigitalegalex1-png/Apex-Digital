@@ -3,44 +3,35 @@ const SHEET_NAME = "Leads";
 
 function doPost(e) {
   try {
-    // قراءة البيانات القادمة من الموقع
-    const data = JSON.parse(e.postData.contents);
 
-    // فتح ملف Google Sheets
-    const spreadsheet = SpreadsheetApp.openById(SHEET_ID);
-
-    // فتح ورقة Leads
-    const sheet = spreadsheet.getSheetByName(SHEET_NAME);
+    const sheet = SpreadsheetApp
+      .openById(SHEET_ID)
+      .getSheetByName(SHEET_NAME);
 
     if (!sheet) {
-      throw new Error("لم يتم العثور على ورقة باسم Leads");
+      throw new Error("Sheet 'Leads' not found");
     }
 
-    // إضافة البيانات في الصف الجديد
+    const p = e.parameter;
+
     sheet.appendRow([
       new Date(),
-      data.name || "",
-      data.phone || "",
-      data.email || "",
-      data.service || "",
-      data.details || "",
-      data.source || "Apex Digital Website"
+      p.name || "",
+      p.phone || "",
+      p.email || "",
+      p.service || "",
+      p.details || "",
+      p.source || "Apex Digital Website"
     ]);
 
     return ContentService
-      .createTextOutput(JSON.stringify({
-        success: true,
-        message: "تم تسجيل البيانات بنجاح"
-      }))
-      .setMimeType(ContentService.MimeType.JSON);
+      .createTextOutput("SUCCESS")
+      .setMimeType(ContentService.MimeType.TEXT);
 
   } catch (error) {
 
     return ContentService
-      .createTextOutput(JSON.stringify({
-        success: false,
-        error: error.toString()
-      }))
-      .setMimeType(ContentService.MimeType.JSON);
+      .createTextOutput("ERROR: " + error.message)
+      .setMimeType(ContentService.MimeType.TEXT);
   }
 }
