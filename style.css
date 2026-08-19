@@ -21,22 +21,23 @@ a{text-decoration:none;color:inherit}
 }
 
 .logo img {
-    width: 55px;
-    height: 55px;
+    width: 52px;
+    height: 52px;
     object-fit: contain;
     display: block;
+    flex-shrink: 0;
 }
 
 .logo span {
-    color: #ffffff;
+    color: #fff;
     font-size: 20px;
     font-weight: 800;
+    white-space: nowrap;
 }
 
 .logo span b {
     color: #35c8ff;
 }
-
 .navbar nav{display:flex;gap:28px;color:#a9bdd0;font-size:13px}
 .navbar nav a{transition:.25s}
 .navbar nav a:hover{color:#fff}
