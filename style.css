@@ -13,11 +13,29 @@ a{text-decoration:none;color:inherit}
 ========================= */
 .navbar{height:78px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 6%;background:rgba(2,8,18,.75);backdrop-filter:blur(18px);border-bottom:1px solid rgba(100,200,255,.12)}
 
-.logo{display:flex;align-items:center;justify-content:flex-start;gap:10px;width:170px;height:68px;font-size:20px;font-weight:900;direction:ltr}
-.logo img{width:150px;height:62px;object-fit:contain;display:block;border-radius:0;background:transparent;transition:transform .3s ease}
-.logo img:hover{transform:scale(1.04)}
-.logo b{color:#55caff}
-.logo span{display:none}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    display: block;
+}
+
+.logo span {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.logo span b {
+    color: #35c8ff;
+}
 
 .navbar nav{display:flex;gap:28px;color:#a9bdd0;font-size:13px}
 .navbar nav a{transition:.25s}
