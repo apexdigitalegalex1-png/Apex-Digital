@@ -1,45 +1,98 @@
-// Apex Digital - Google Sheets Integration
+// ========================================
+// Apex Digital - Website Form
+// Google Sheets Integration
+// ========================================
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwR-1t1BaDQE_t2uk0msz8-txJl37Xk3hQjSyoDRTFBdYssUlehbmXF1wgUuFPvD5qq/exec";
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwR-1t1BaDQE_t2uk0msz8-txJl37Xk3hQjSyoDRTFBdYssUlehbmXF1wgUuFPvD5qq/exec";
 
 const form = document.getElementById("leadForm");
 const status = document.getElementById("formStatus");
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
 
-    status.textContent = "جاري إرسال البيانات...";
-    status.style.color = "#63d4ff";
+// التأكد إن الفورم موجود
+if (form) {
 
-    const formData = new FormData(form);
+    form.addEventListener("submit", async function (e) {
 
-    const data = new URLSearchParams();
+        e.preventDefault();
 
-    for (const [key, value] of formData.entries()) {
-        data.append(key, value);
-    }
 
-    data.append("timestamp", new Date().toISOString());
-    data.append("source", "Apex Digital Website");
+        // رسالة أثناء الإرسال
+        if (status) {
+            status.textContent = "جاري إرسال البيانات...";
+            status.style.color = "#63d4ff";
+        }
 
-    try {
 
-        await fetch(GOOGLE_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: data
-        });
+        // جمع بيانات الفورم
+        const formData = new FormData(form);
 
-        status.textContent = "تم إرسال طلبك بنجاح، سنتواصل معك قريباً.";
-        status.style.color = "#63e6a0";
 
-        form.reset();
+        // تحويل البيانات إلى URLSearchParams
+        const data = new URLSearchParams();
 
-    } catch (error) {
+        for (const [key, value] of formData.entries()) {
+            data.append(key, value);
+        }
 
-        console.error(error);
 
-        status.textContent = "حصل خطأ أثناء الإرسال. تواصل معنا على واتساب.";
-        status.style.color = "#ff8f8f";
-    }
-});
+        // بيانات إضافية
+        data.append("timestamp", new Date().toISOString());
+        data.append("source", "Apex Digital Website");
+
+
+        try {
+
+            // إرسال البيانات إلى Google Apps Script
+            await fetch(GOOGLE_SCRIPT_URL, {
+
+                method: "POST",
+
+                mode: "no-cors",
+
+                headers: {
+                    "Content-Type":
+                    "application/x-www-form-urlencoded;charset=UTF-8"
+                },
+
+                body: data.toString()
+
+            });
+
+
+            // رسالة نجاح
+            if (status) {
+                status.textContent =
+                    "تم إرسال طلبك بنجاح، سنتواصل معك قريباً.";
+
+                status.style.color = "#63e6a0";
+            }
+
+
+            // تفريغ الفورم
+            form.reset();
+
+
+        } catch (error) {
+
+            console.error(
+                "Google Sheets Error:",
+                error
+            );
+
+
+            if (status) {
+
+                status.textContent =
+                    "حصل خطأ أثناء إرسال البيانات. حاول مرة أخرى أو تواصل معنا على واتساب.";
+
+                status.style.color = "#ff8f8f";
+
+            }
+
+        }
+
+    });
+
+}
