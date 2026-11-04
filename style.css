@@ -195,3 +195,20 @@ footer{padding:28px 6%;border-top:1px solid var(--line-soft);display:flex;align-
 .band-purple .work-card{background:var(--navy);border:1px solid rgba(255,255,255,.18)}
 .band-purple .work-card:hover{border-color:#fff;box-shadow:0 25px 60px rgba(3,19,38,.45)}
 .band-purple .extras{background:var(--navy);border-color:rgba(255,255,255,.18)}
+
+/* ---- ستايل الريفرنس: كحلي عميق + أبيض تقيل + موف نيون كتوهج وخطوط رفيعة ---- */
+body{background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(209,0,209,.16),transparent 70%),var(--navy)}
+.band-purple{background:radial-gradient(ellipse 70% 80% at 50% 0%,rgba(209,0,209,.3),transparent 70%),var(--navy-3);color:var(--white)}
+.band-purple .section-title small{color:var(--purple-soft)}
+.band-purple .section-title h2 span{color:var(--purple)}
+.band-purple .section-title>p{color:var(--muted)}
+.band-purple .work-card{background:linear-gradient(145deg,rgba(10,38,70,.8),rgba(2,13,26,.95));border:1px solid var(--line)}
+.band-purple .work-card:hover{border-color:var(--purple);box-shadow:0 25px 70px rgba(209,0,209,.25)}
+.band-purple .extras{background:linear-gradient(110deg,rgba(110,0,110,.4),rgba(3,19,38,.9));border-color:var(--line)}
+
+.hero h1{font-weight:900}
+.hero h1 span{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--white);text-shadow:0 0 38px rgba(209,0,209,.75)}
+
+.section-title small,.cta>small,.extras small{display:inline-flex;align-items:center;gap:10px}
+.section-title small::before,.section-title small::after,.cta>small::before,.cta>small::after,.extras small::before,.extras small::after{content:"";width:28px;height:2px;background:var(--purple);box-shadow:0 0 10px var(--purple)}
+.section-title h2,.cta h2,.extras h2{font-weight:900}
